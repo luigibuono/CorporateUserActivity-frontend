@@ -1,0 +1,31 @@
+<h2>Champions List</h2>
+<!-- Aggiungi la barra di ricerca -->
+<form class="form-inline ml-auto" (ngSubmit)="search(searchTerm.value)">
+  <input #searchTerm class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let champion of champions">
+        <td> {{champion.firstName}}</td>
+        <td> {{champion.lastName}}</td>
+        <td> {{champion.email}}</td>
+      <td>
+      <button (click)="updateChampion(champion.id)" class="btn btn-info">
+          Update
+      </button>
+      </td>
+      <td>
+        <button (click)="deleteChampion(champion.id)" class="btn btn-danger">Delete</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
